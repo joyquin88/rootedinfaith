@@ -1,0 +1,681 @@
+<title>Rooted Women in Business</title>
+<style>
+  :root{
+    --ink:#16223d;
+    --ink-2:#1e2f52;
+    --gold:#b6862c;
+    --gold-2:#d3a44a;
+    --teal:#33685f;
+    --teal-2:#3f8078;
+    --paper:#f7f1e4;
+    --card:#efe4cd;
+    --charcoal:#262420;
+    --charcoal-soft:#4a463d;
+    --line:rgba(22,34,61,0.14);
+    --on-ink:#f4ecd8;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#141a2b;
+      --card:#1c2440;
+      --charcoal:#ece5d3;
+      --charcoal-soft:#c9c2ac;
+      --line:rgba(244,236,216,0.14);
+      --gold:#d3a44a;
+      --teal:#5aa89d;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#141a2b;
+    --card:#1c2440;
+    --charcoal:#ece5d3;
+    --charcoal-soft:#c9c2ac;
+    --line:rgba(244,236,216,0.14);
+    --gold:#d3a44a;
+    --teal:#5aa89d;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--paper);
+    color:var(--charcoal);
+    font-family:"Lora", Georgia, "Times New Roman", serif;
+    line-height:1.65;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:"Playfair Display", Georgia, serif;
+    color:var(--ink);
+    margin:0 0 .4em;
+    text-wrap:balance;
+    font-weight:700;
+  }
+  :root[data-theme="dark"] h1, :root[data-theme="dark"] h2, :root[data-theme="dark"] h3, :root[data-theme="dark"] h4{ color:var(--on-ink); }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) h1, :root:not([data-theme="light"]) h2, :root:not([data-theme="light"]) h3, :root:not([data-theme="light"]) h4{ color:var(--on-ink); } }
+  p{margin:0 0 1em;}
+  a{color:var(--teal);}
+  .eyebrow{
+    font-family:"Outfit", sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:.72rem;
+    font-weight:600;
+    color:var(--gold);
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding-inline:20px;}
+  section{padding-block: 64px;}
+  .lede{max-width:620px; color:var(--charcoal-soft); font-size:1.08rem;}
+
+  /* nav */
+  header.top{
+    position:sticky; top:env(safe-area-inset-top,0px); z-index:50;
+    background:var(--ink);
+    border-bottom:1px solid rgba(244,236,216,0.14);
+  }
+  .navrow{
+    max-width:1080px; margin:0 auto; padding:14px 20px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    flex-wrap:wrap;
+  }
+  .brand{
+    font-family:"Playfair Display", serif; color:var(--on-ink);
+    font-size:1.15rem; font-weight:700; letter-spacing:.01em;
+    display:flex; align-items:baseline; gap:8px;
+  }
+  .brand small{
+    font-family:"Outfit", sans-serif; font-size:.6rem; letter-spacing:.16em;
+    color:var(--gold-2); text-transform:uppercase; font-weight:600;
+  }
+  nav.links{
+    display:flex; gap:22px; flex-wrap:wrap;
+    font-family:"Outfit", sans-serif; font-size:.8rem; letter-spacing:.02em;
+  }
+  nav.links a{
+    color:var(--on-ink); text-decoration:none; opacity:.82;
+    border-bottom:1px solid transparent; padding-bottom:2px;
+  }
+  nav.links a:hover{opacity:1; border-color:var(--gold);}
+  .btn{
+    display:inline-block; font-family:"Outfit", sans-serif; font-weight:600;
+    font-size:.82rem; letter-spacing:.03em; text-decoration:none;
+    padding:11px 22px; border-radius:2px; border:1px solid var(--gold);
+    color:var(--ink); background:var(--gold); transition:opacity .15s;
+  }
+  .btn:hover{opacity:.88;}
+  .btn.ghost{
+    background:transparent; color:var(--on-ink); border-color:rgba(244,236,216,0.5);
+  }
+  .btn.ghost:hover{border-color:var(--gold); color:var(--gold-2);}
+  .btn.small{padding:8px 16px; font-size:.74rem;}
+
+  /* hero */
+  .hero{
+    background:
+      radial-gradient(1100px 460px at 85% -10%, rgba(182,134,44,0.16), transparent 60%),
+      linear-gradient(180deg, var(--ink), var(--ink-2));
+    color:var(--on-ink);
+    padding-block: 88px 76px;
+    border-bottom:4px solid var(--gold);
+  }
+  .hero .wrap{display:grid; gap:28px;}
+  .hero .verse{
+    font-family:"Playfair Display", serif; font-style:italic;
+    font-size:1.05rem; color:var(--gold-2); max-width:520px;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem, 4.6vw, 3.2rem);
+    color:var(--on-ink);
+    max-width:760px;
+  }
+  .hero .lede{color:rgba(244,236,216,0.82); font-size:1.12rem; max-width:640px;}
+  .hero .ctas{display:flex; gap:14px; flex-wrap:wrap; margin-top:6px;}
+  .hero .stats{
+    margin-top:20px; display:flex; gap:32px; flex-wrap:wrap;
+    font-family:"Outfit", sans-serif;
+  }
+  .hero .stats div{min-width:120px;}
+  .hero .stats b{display:block; font-family:"Playfair Display",serif; font-size:1.6rem; color:var(--gold-2);}
+  .hero .stats span{font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; color:rgba(244,236,216,0.7);}
+
+  /* section headers */
+  .shead{max-width:680px; margin-bottom:34px;}
+  .shead h2{font-size:clamp(1.6rem,3vw,2.1rem);}
+
+  /* pillars */
+  .pillars-section{background:var(--card);}
+  .pgrid{display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;}
+  @media (max-width:900px){.pgrid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:520px){.pgrid{grid-template-columns:1fr;}}
+  .pcard{
+    background:var(--paper); border:1px solid var(--line);
+    padding:20px 18px; border-radius:3px;
+  }
+  .pcard .tag{
+    font-family:"Outfit",sans-serif; font-size:.68rem; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--teal); font-weight:700;
+  }
+  .pcard h3{font-size:1.12rem; margin:.3em 0 .35em;}
+  .pcard p{font-size:.92rem; color:var(--charcoal-soft); margin:0;}
+
+  /* initiatives */
+  .igrid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  @media (max-width:900px){.igrid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:620px){.igrid{grid-template-columns:1fr;}}
+  .icard{
+    border:1px solid var(--line); border-radius:4px; padding:24px;
+    background:var(--paper);
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .icard .cadence{
+    font-family:"Outfit",sans-serif; font-size:.66rem; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--gold); font-weight:700;
+  }
+  .icard h3{font-size:1.2rem;}
+  .icard p{font-size:.93rem; color:var(--charcoal-soft); margin:0; flex:1;}
+  .icard .pillar-tags{
+    display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;
+  }
+  .icard .pillar-tags span{
+    font-family:"Outfit",sans-serif; font-size:.62rem; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--teal); border:1px solid var(--teal);
+    border-radius:20px; padding:3px 9px; opacity:.85;
+  }
+
+  /* journey / membership */
+  .membership-section{background:var(--card);}
+  .journey{
+    display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px;
+    counter-reset:step;
+  }
+  .step{
+    flex:1; min-width:220px; background:var(--paper); border:1px solid var(--line);
+    padding:18px; border-radius:3px; position:relative;
+  }
+  .step .num{
+    font-family:"Playfair Display",serif; color:var(--gold); font-size:1.3rem;
+    display:block; margin-bottom:6px;
+  }
+  .step h4{font-size:1rem; margin-bottom:.3em;}
+  .step p{font-size:.88rem; color:var(--charcoal-soft); margin:0;}
+
+  .tiers{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  @media (max-width:860px){.tiers{grid-template-columns:1fr;}}
+  .tier{
+    background:var(--paper); border:1px solid var(--line); border-radius:4px;
+    padding:28px 24px; display:flex; flex-direction:column; gap:14px;
+  }
+  .tier.featured{
+    border-color:var(--gold); box-shadow:0 0 0 1px var(--gold);
+  }
+  .tier .tname{font-family:"Outfit",sans-serif; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--teal); font-weight:700;}
+  .tier .price{font-family:"Playfair Display",serif; font-size:1.9rem; color:var(--ink);}
+  :root[data-theme="dark"] .tier .price{color:var(--on-ink);}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .tier .price{color:var(--on-ink);} }
+  .tier .price span{font-family:"Outfit",sans-serif; font-size:.8rem; color:var(--charcoal-soft);}
+  .tier ul{margin:0; padding-left:1.1em; font-size:.9rem; color:var(--charcoal-soft); display:flex; flex-direction:column; gap:7px;}
+  .tier ul li::marker{color:var(--gold);}
+
+  /* giving back / legacy strip */
+  .strip{
+    background:linear-gradient(180deg, var(--ink), var(--ink-2));
+    color:var(--on-ink);
+  }
+  .strip .wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center;}
+  @media (max-width:800px){.strip .wrap{grid-template-columns:1fr;}}
+  .strip h2{color:var(--on-ink);}
+  .strip .lede{color:rgba(244,236,216,0.82);}
+  .strip .figures{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .strip .fig{
+    border:1px solid rgba(244,236,216,0.22); border-radius:3px; padding:18px;
+    font-family:"Outfit",sans-serif;
+  }
+  .strip .fig b{display:block; font-family:"Playfair Display",serif; color:var(--gold-2); font-size:1.5rem;}
+  .strip .fig span{font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color:rgba(244,236,216,0.7);}
+
+  /* events */
+  .events-list{display:flex; flex-direction:column; border-top:1px solid var(--line);}
+  .event-row{
+    display:grid; grid-template-columns:110px 1fr auto; gap:18px; align-items:center;
+    padding:18px 0; border-bottom:1px solid var(--line);
+  }
+  @media (max-width:620px){.event-row{grid-template-columns:70px 1fr; }
+    .event-row .btn{grid-column:1/-1; justify-self:start;}}
+  .event-row .date{
+    font-family:"Outfit",sans-serif; text-align:center; border-right:1px solid var(--line); padding-right:16px;
+  }
+  @media (max-width:620px){.event-row .date{padding-right:10px;}}
+  .event-row .date b{display:block; font-family:"Playfair Display",serif; font-size:1.5rem; color:var(--gold); line-height:1;}
+  .event-row .date span{font-size:.68rem; text-transform:uppercase; letter-spacing:.08em; color:var(--charcoal-soft);}
+  .event-row h4{margin:0 0 3px; font-size:1.05rem;}
+  .event-row p{margin:0; font-size:.86rem; color:var(--charcoal-soft);}
+
+  /* sponsors */
+  .sponsor-tiers{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media (max-width:760px){.sponsor-tiers{grid-template-columns:1fr;}}
+  .sponsor-card{
+    background:var(--card); border:1px solid var(--line); border-radius:4px; padding:26px;
+  }
+  .sponsor-card h3{font-size:1.15rem;}
+  .sponsor-card ul{padding-left:1.1em; font-size:.9rem; color:var(--charcoal-soft);}
+  .sponsor-card ul li::marker{color:var(--teal);}
+
+  /* testimonials */
+  .quotes{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  @media (max-width:900px){.quotes{grid-template-columns:1fr;}}
+  .quote{
+    background:var(--card); border-left:3px solid var(--gold); padding:20px 22px; border-radius:2px;
+  }
+  .quote p{font-family:"Playfair Display",serif; font-style:italic; font-size:1.02rem; color:var(--ink);}
+  :root[data-theme="dark"] .quote p{color:var(--on-ink);}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .quote p{color:var(--on-ink);} }
+  .quote cite{
+    font-style:normal; font-family:"Outfit",sans-serif; font-size:.78rem;
+    color:var(--charcoal-soft); display:block; margin-top:10px;
+  }
+
+  /* faq */
+  .faq details{
+    border-bottom:1px solid var(--line); padding:16px 0;
+  }
+  .faq summary{
+    cursor:pointer; font-family:"Playfair Display",serif; font-size:1.06rem; color:var(--ink);
+    list-style:none; display:flex; justify-content:space-between; align-items:center; gap:12px;
+  }
+  :root[data-theme="dark"] .faq summary{color:var(--on-ink);}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .faq summary{color:var(--on-ink);} }
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{
+    content:"+"; font-family:"Outfit",sans-serif; color:var(--gold); font-size:1.3rem; flex-shrink:0;
+  }
+  .faq details[open] summary::after{content:"–";}
+  .faq .a{color:var(--charcoal-soft); margin-top:10px; font-size:.95rem; max-width:660px;}
+
+  /* final cta */
+  .final-cta{
+    text-align:center; background:var(--card); border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .final-cta .wrap{max-width:640px;}
+  .final-cta .ctas{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:18px;}
+
+  footer{
+    background:var(--ink); color:rgba(244,236,216,0.75); padding-block:48px calc(40px + env(safe-area-inset-bottom,0px));
+    font-family:"Outfit", sans-serif; font-size:.84rem;
+  }
+  footer .wrap{display:flex; justify-content:space-between; gap:30px; flex-wrap:wrap;}
+  footer h4{color:var(--on-ink); font-family:"Playfair Display",serif; font-size:1.05rem; margin-bottom:10px;}
+  footer a{color:rgba(244,236,216,0.75); text-decoration:none;}
+  footer a:hover{color:var(--gold-2);}
+  footer .verse{font-family:"Playfair Display",serif; font-style:italic; color:var(--gold-2); max-width:340px;}
+  .fine{margin-top:30px; font-size:.74rem; color:rgba(244,236,216,0.5); border-top:1px solid rgba(244,236,216,0.14); padding-top:18px;}
+</style>
+
+<header class="top">
+  <div class="navrow">
+    <div class="brand">Rooted <small>Women in Business · Volusia County</small></div>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#pillars">Pillars</a>
+      <a href="#initiatives">Initiatives</a>
+      <a href="#membership">Membership</a>
+      <a href="#events">Events</a>
+      <a href="#giving">Giving Back</a>
+      <a href="#partners">Partners</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn small" href="#join">Join Us</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="verse">"Trust in the Lord with all your heart, and lean not on your own understanding." — Proverbs 3:5</div>
+    <h1>A mastermind for Christian women building businesses — and lives — that outlast them.</h1>
+    <p class="lede">Rooted is a faith-first business community for women across Volusia County, Florida. We go deep, not wide: prayer and Scripture, real friendship, sound business strategy, and a plan for the wealth and legacy we pass on.</p>
+    <div class="ctas">
+      <a class="btn" href="#join">Request an Invitation</a>
+      <a class="btn ghost" href="#initiatives">See What We Do</a>
+    </div>
+    <div class="stats">
+      <div><b>8</b><span>Core Pillars</span></div>
+      <div><b>Volusia&nbsp;Co.</b><span>DeLand to New Smyrna</span></div>
+      <div><b>Small</b><span>By Design, Not Scale</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="shead">
+      <p class="eyebrow">Our Story</p>
+      <h2>Depth over breadth, on purpose.</h2>
+      <p class="lede">Most networking groups are built to grow wide. Rooted is built to grow deep — a small circle of Christian women in business who actually know each other's families, prayer needs, and P&amp;Ls.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:start;">
+      <div>
+        <p>Rooted began as one Volusia County businesswoman's conviction that the women building companies in our own backyard needed more than another mixer — they needed a table where faith comes first and everything else, business included, grows out of that root system.</p>
+        <p>We believe a woman who is spiritually grounded, relationally known, financially wise, and generous with what she's been given doesn't just build a better business — she builds a legacy that reaches her grandchildren. That conviction shapes everything below: our pillars, our gatherings, and who we invite to the table.</p>
+      </div>
+      <div class="pcard" style="background:var(--card);">
+        <p class="tag">Mission</p>
+        <h3 style="margin-top:.2em;">Grow women who are rooted in Christ, known in community, and wise in business — together.</h3>
+        <p style="margin-top:14px;">We welcome Christian women business owners, aspiring entrepreneurs, and women in leadership across Volusia County who want their faith and their work to grow from the same root.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pillars" class="pillars-section">
+  <div class="wrap">
+    <div class="shead">
+      <p class="eyebrow">What We're Built On</p>
+      <h2>Eight pillars, one root system.</h2>
+      <p class="lede">Every gathering, circle, and decision we make ties back to one of these. None stands alone — that's the point.</p>
+    </div>
+    <div class="pgrid">
+      <div class="pcard"><p class="tag">I</p><h3>Faith</h3><p>Scripture, prayer, and a business life submitted to God first — not as a slogan, but as the actual foundation.</p></div>
+      <div class="pcard"><p class="tag">II</p><h3>Business</h3><p>Real strategy: marketing, sales, operations, and leadership, sharpened by women who've built what you're building.</p></div>
+      <div class="pcard"><p class="tag">III</p><h3>Deep Relationships</h3><p>Small enough to be known. We trade surface-level networking for friendships that carry real weight.</p></div>
+      <div class="pcard"><p class="tag">IV</p><h3>Education</h3><p>Ongoing learning — Bible study, business training, and the wisdom of women a few steps ahead.</p></div>
+      <div class="pcard"><p class="tag">V</p><h3>Giving Back</h3><p>Time, skill, and resources poured back into Volusia County — because generosity is a business practice too.</p></div>
+      <div class="pcard"><p class="tag">VI</p><h3>Travel</h3><p>Retreats and trips that pull us out of the daily grind and into rest, vision, and joy together.</p></div>
+      <div class="pcard"><p class="tag">VII</p><h3>Generational Wealth</h3><p>Partnership, investment, and financial literacy — building something the next generation actually inherits.</p></div>
+      <div class="pcard"><p class="tag">VIII</p><h3>Legacy</h3><p>What outlives the balance sheet. We measure success by what we leave behind, not just what we earn.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="initiatives">
+  <div class="wrap">
+    <div class="shead">
+      <p class="eyebrow">Get Involved</p>
+      <h2>Our initiatives</h2>
+      <p class="lede">These are the regular rhythms of Rooted — the gatherings that turn eight pillars into a lived-out community.</p>
+    </div>
+    <div class="igrid">
+      <div class="icard">
+        <p class="cadence">Monthly · Mornings</p>
+        <h3>Morning Manna</h3>
+        <p>Coffee, Scripture, and prayer over the businesses and burdens each woman is carrying that season. Come as you are, leave prayed for.</p>
+        <div class="pillar-tags"><span>Faith</span><span>Relationships</span></div>
+      </div>
+      <div class="icard">
+        <p class="cadence">Ongoing · Small Groups</p>
+        <h3>Business Circles</h3>
+        <p>Peer mastermind pods of 5–7, grouped by industry or season of business, meeting monthly for accountability, feedback, and honest counsel.</p>
+        <div class="pillar-tags"><span>Business</span><span>Relationships</span></div>
+      </div>
+      <div class="icard">
+        <p class="cadence">Monthly</p>
+        <h3>Table Talks</h3>
+        <p>Fifteen minutes, one woman, the group's full attention — to pitch, ask for help, or workshop a real problem in front of people who want her to win.</p>
+        <div class="pillar-tags"><span>Business</span><span>Education</span></div>
+      </div>
+      <div class="icard">
+        <p class="cadence">Quarterly · Paired</p>
+        <h3>Legacy Circle</h3>
+        <p>Seasoned Rooted members mentor emerging entrepreneurs one-on-one — wisdom and generational wealth passed hand to hand, not just taught from a stage.</p>
+        <div class="pillar-tags"><span>Legacy</span><span>Wealth</span></div>
+      </div>
+      <div class="icard">
+        <p class="cadence">Quarterly</p>
+        <h3>Sister Serve Days</h3>
+        <p>Hands-on service projects across Volusia County — meeting real needs together, as businesswomen and as neighbors.</p>
+        <div class="pillar-tags"><span>Giving Back</span></div>
+      </div>
+      <div class="icard">
+        <p class="cadence">Seasonal</p>
+        <h3>Coffee &amp; Connections</h3>
+        <p>Our signature mixer — new faces, easy conversation, and an on-ramp for women who are still deciding if Rooted is their table.</p>
+        <div class="pillar-tags"><span>Relationships</span></div>
+      </div>
+      <div class="icard">
+        <p class="cadence">Monthly</p>
+        <h3>Rooted Book Club</h3>
+        <p>A rotating read — Scripture-grounded and business-minded — discussed over dinner, one chapter and one honest conversation at a time.</p>
+        <div class="pillar-tags"><span>Education</span></div>
+      </div>
+      <div class="icard">
+        <p class="cadence">Bi-Annual · Getaway</p>
+        <h3>Kingdom Retreats</h3>
+        <p>A weekend away from the office — vision-casting, rest, deep conversation, and the kind of joy that resets a whole season.</p>
+        <div class="pillar-tags"><span>Travel</span><span>Faith</span></div>
+      </div>
+      <div class="icard">
+        <p class="cadence">Annual</p>
+        <h3>Generational Wealth Workshop</h3>
+        <p>Practical financial literacy — investing, estate basics, and partnership structures — taught plainly, with faith and family in view.</p>
+        <div class="pillar-tags"><span>Wealth</span><span>Education</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="membership" class="membership-section">
+  <div class="wrap">
+    <div class="shead">
+      <p class="eyebrow">Find Your Place</p>
+      <h2>How to join the table</h2>
+      <p class="lede">Not sure where to start? Most women move through this journey at their own pace.</p>
+    </div>
+    <div class="journey">
+      <div class="step"><span class="num">01</span><h4>Visit, free</h4><p>Come to Morning Manna or Coffee &amp; Connections as a guest — twice, no cost, no pressure.</p></div>
+      <div class="step"><span class="num">02</span><h4>Stay connected</h4><p>Join our email list and private Facebook group to see what a season at Rooted actually looks like.</p></div>
+      <div class="step"><span class="num">03</span><h4>Become a member</h4><p>Ready for the full table? Apply for membership and step into Circles, mentorship, and retreats.</p></div>
+      <div class="step"><span class="num">04</span><h4>Lead &amp; give back</h4><p>Host a Table Talk, lead a Circle, or mentor through Legacy — pour into the women coming behind you.</p></div>
+    </div>
+
+    <div class="tiers">
+      <div class="tier">
+        <p class="tname">Guest</p>
+        <p class="price">Free <span>/ two visits</span></p>
+        <p style="font-size:.92rem; color:var(--charcoal-soft);">A no-strings way to see if Rooted is your table.</p>
+        <ul>
+          <li>Attend Morning Manna or Coffee &amp; Connections twice</li>
+          <li>Access to the public event calendar</li>
+          <li>Invitation to apply for membership</li>
+        </ul>
+      </div>
+      <div class="tier featured">
+        <p class="tname">Rooted Member</p>
+        <p class="price">Annual dues <span>· details on application</span></p>
+        <p style="font-size:.92rem; color:var(--charcoal-soft);">Full access to the community and its rhythms.</p>
+        <ul>
+          <li>Placement in a Business Circle</li>
+          <li>Unlimited Morning Manna, Table Talks &amp; Book Club</li>
+          <li>Legacy Circle mentorship (mentor or mentee)</li>
+          <li>Member discount on Kingdom Retreats</li>
+          <li>Listing in the Rooted member directory</li>
+          <li>Opportunity to host or lead an initiative</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <p class="tname">Legacy Partner</p>
+        <p class="price">By invitation</p>
+        <p style="font-size:.92rem; color:var(--charcoal-soft);">For women ready to invest further in the next generation.</p>
+        <ul>
+          <li>Everything in Rooted Membership</li>
+          <li>Priority pairing in Legacy Circle mentorship</li>
+          <li>Recognition at the annual Founders' Gathering</li>
+          <li>First access to Generational Wealth workshops</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="events">
+  <div class="wrap">
+    <div class="shead">
+      <p class="eyebrow">What's Coming</p>
+      <h2>Upcoming gatherings</h2>
+      <p class="lede">A sample of the season ahead — final dates and locations go out to the email list and private Facebook group first.</p>
+    </div>
+    <div class="events-list">
+      <div class="event-row">
+        <div class="date"><b>08</b><span>Oct</span></div>
+        <div><h4>Morning Manna</h4><p>Coffee, Scripture, and prayer to open the month. Guests welcome.</p></div>
+        <a class="btn small ghost" style="color:var(--ink); border-color:var(--line);" href="#join">RSVP</a>
+      </div>
+      <div class="event-row">
+        <div class="date"><b>15</b><span>Oct</span></div>
+        <div><h4>Business Circles — Fall Cohort Kickoff</h4><p>New Circle placements for members starting this season.</p></div>
+        <a class="btn small ghost" style="color:var(--ink); border-color:var(--line);" href="#join">RSVP</a>
+      </div>
+      <div class="event-row">
+        <div class="date"><b>29</b><span>Oct</span></div>
+        <div><h4>Coffee &amp; Connections Mixer</h4><p>Our seasonal on-ramp event — bring a friend who's never been.</p></div>
+        <a class="btn small ghost" style="color:var(--ink); border-color:var(--line);" href="#join">RSVP</a>
+      </div>
+      <div class="event-row">
+        <div class="date"><b>12</b><span>Nov</span></div>
+        <div><h4>Table Talks</h4><p>Three members present, the room shows up for them.</p></div>
+        <a class="btn small ghost" style="color:var(--ink); border-color:var(--line);" href="#join">RSVP</a>
+      </div>
+      <div class="event-row">
+        <div class="date"><b>07</b><span>Dec</span></div>
+        <div><h4>Sister Serve Day</h4><p>A hands-on service project serving a Volusia County family or ministry.</p></div>
+        <a class="btn small ghost" style="color:var(--ink); border-color:var(--line);" href="#join">RSVP</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="giving" class="strip">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow" style="color:var(--gold-2);">Giving Back</p>
+      <h2>Generosity is a business practice here.</h2>
+      <p class="lede">Rooted exists for more than the women inside it. Every quarter, we turn our time, skills, and resources toward real needs across Volusia County — because a rooted business gives fruit away, not just up.</p>
+      <a class="btn ghost" href="#faq">How We Choose Projects</a>
+    </div>
+    <div class="figures">
+      <div class="fig"><b>4x</b><span>Sister Serve Days / Year</span></div>
+      <div class="fig"><b>1:1</b><span>Legacy Mentorship Pairings</span></div>
+      <div class="fig"><b>100%</b><span>Local, Volusia County</span></div>
+      <div class="fig"><b>Est. 2026</b><span>Founding Season</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="wrap">
+    <div class="shead">
+      <p class="eyebrow">In Their Words</p>
+      <h2>Why women stay rooted</h2>
+    </div>
+    <div class="quotes">
+      <div class="quote">
+        <p>"I've been in networking groups that grew my contact list. This is the first one that's grown my faith and my business at the same time."</p>
+        <cite>— Founding Member, DeLand</cite>
+      </div>
+      <div class="quote">
+        <p>"Knowing other women are wrestling with the same fears and the same growing pains has kept me from feeling so alone in this."</p>
+        <cite>— Founding Member, Port Orange</cite>
+      </div>
+      <div class="quote">
+        <p>"My Legacy Circle mentor asks about my business and my kids in the same conversation. That's rare, and it's exactly what I needed."</p>
+        <cite>— Founding Member, New Smyrna Beach</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="partners">
+  <div class="wrap">
+    <div class="shead">
+      <p class="eyebrow">Partner With Us</p>
+      <h2>Sponsors &amp; ministry partners</h2>
+      <p class="lede">Businesses and ministries who want to invest in Christian women across Volusia County partner with Rooted in two ways.</p>
+    </div>
+    <div class="sponsor-tiers">
+      <div class="sponsor-card">
+        <h3>Community Partner</h3>
+        <p style="color:var(--charcoal-soft); font-size:.92rem;">A single annual investment in Rooted as a whole.</p>
+        <ul>
+          <li>Logo and description on our Partners page</li>
+          <li>Listing in the member directory</li>
+          <li>Featured in the Rooted newsletter for one year</li>
+          <li>May offer a member perk during the sponsorship year</li>
+        </ul>
+      </div>
+      <div class="sponsor-card">
+        <h3>Gathering Partner</h3>
+        <p style="color:var(--charcoal-soft); font-size:.92rem;">Support one initiative or event — monetary or in-kind.</p>
+        <ul>
+          <li>Brand presence at that gathering</li>
+          <li>Introduction to members in that room</li>
+          <li>Speaking or welcome opportunity where it fits</li>
+          <li>Flexible level, set with the event lead</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="shead">
+      <p class="eyebrow">Questions</p>
+      <h2>Frequently asked</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Do I have to belong to a specific church?</summary>
+        <p class="a">No. Rooted welcomes Christian women across denominations and churches throughout Volusia County. What matters is a shared faith in Christ and a desire to build a business that grows from it.</p>
+      </details>
+      <details>
+        <summary>What if I'm just starting my business — or haven't started yet?</summary>
+        <p class="a">You're welcome at the table. Rooted includes established owners, brand-new entrepreneurs, and women still discerning what God's called them to build.</p>
+      </details>
+      <details>
+        <summary>What does membership cost?</summary>
+        <p class="a">Annual membership dues are shared during the application process, alongside what each tier includes. Guests can attend two gatherings free before ever committing.</p>
+      </details>
+      <details>
+        <summary>Is this a business program or a Bible study?</summary>
+        <p class="a">Both, on purpose. We don't separate spiritual growth from business growth — Morning Manna and Business Circles run side by side, and most gatherings touch both.</p>
+      </details>
+      <details>
+        <summary>How much time does membership take?</summary>
+        <p class="a">Most members attend one to two gatherings a month, plus their Business Circle. You choose your level of involvement beyond that.</p>
+      </details>
+      <details>
+        <summary>How do you choose Sister Serve Day projects?</summary>
+        <p class="a">Members nominate local needs — a family, a ministry, a shelter — each quarter, and the group votes. Priority goes to needs right here in Volusia County.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="join" class="final-cta">
+  <div class="wrap">
+    <p class="eyebrow">Ready When You Are</p>
+    <h2>Come see what's growing at the table.</h2>
+    <p class="lede" style="margin:0 auto;">Request an invitation to your first Morning Manna or Coffee &amp; Connections — no cost, no commitment, just a seat.</p>
+    <div class="ctas">
+      <a class="btn" href="mailto:hello@rootedwomeninbusiness.org">Request an Invitation</a>
+      <a class="btn ghost" style="color:var(--ink); border-color:var(--line);" href="#membership">View Membership</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h4>Rooted Women in Business</h4>
+      <p style="max-width:280px; margin:0;">A Christian women's business mastermind serving Volusia County, Florida — DeLand to New Smyrna Beach.</p>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <p style="margin:0 0 6px;"><a href="mailto:hello@rootedwomeninbusiness.org">hello@rootedwomeninbusiness.org</a></p>
+      <p style="margin:0 0 6px;"><a href="#">Facebook Group</a></p>
+      <p style="margin:0;"><a href="#">Instagram</a></p>
+    </div>
+    <div class="verse">"Blessed is the one who trusts in the Lord... She will be like a tree planted by the water that sends out its roots by the stream." — Jeremiah 17:7–8</div>
+  </div>
+  <div class="wrap fine">© 2026 Rooted Women in Business. Volusia County, Florida.</div>
+</footer>
